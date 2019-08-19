@@ -1,24 +1,18 @@
 def almostIncreasingSequence(sequence):
     
-    to_remove = []
-    # highest_yet = -10**6
-
-    for index, i in enumerate(sequence):
+    left_list = []
+    right_list = []
+    
+    for index, i in enumerate(sequence[:-1]):
+        if i >= sequence[index+1]:
+            left_list.append(index)
+            right_list.append(index+1)
+        
         try:
-            if i >= sequence[index+1]:
-                to_remove.append(i)
-            else:
-                continue
+            if i >= sequence[index+2]:
+                left_list.append(index)
+                right_list.append(index+2)
         except:
             continue
-    # for i in sequence:
-    #     if i > highest_yet:
-    #         highest_yet = i
-    #     else:
-    #         to_remove.append(i)
-
-    print(to_remove)
-
-    return len(to_remove) <= 1
-
-print(almostIncreasingSequence([1, 1, 1, 2, 3])) #true
+    
+    return len(set(left_list)) <= 1 or len(set(right_list)) <= 1
