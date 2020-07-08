@@ -1,2 +1,15 @@
+
+
 def palindromeRearranging(inputString):
-    characters = list(inputString)
+    middleIndex = int(len(inputString) / 2)
+
+    if len(inputString) % 2:
+
+        return inputString[middleIndex+1:] == inputString[:middleIndex][::-1]
+    else:
+
+        return inputString[middleIndex:] == inputString[:middleIndex][::-1]
+
+
+
+palindromeRearranging("aabb")

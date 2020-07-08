@@ -5,7 +5,6 @@ def checkPalindrome(inputString):
     if len(inputString) % 2:
         return inputString[middleIndex+1:] == inputString[:middleIndex][::-1]
     else:
-        middleIndex1 = middleIndex-1
         return inputString[middleIndex:] == inputString[:middleIndex][::-1]
 
 
