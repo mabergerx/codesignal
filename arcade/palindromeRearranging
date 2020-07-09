@@ -1,15 +1,22 @@
-
+from collections import Counter
 
 def palindromeRearranging(inputString):
-    middleIndex = int(len(inputString) / 2)
 
-    if len(inputString) % 2:
+    c = Counter(inputString).most_common()
 
-        return inputString[middleIndex+1:] == inputString[:middleIndex][::-1]
+    print(c)
+
+    odd_counts = [count for letter, count in c if count % 2]
+
+    print(odd_counts)
+
+    if len(odd_counts) > 1:
+        return False
     else:
+        return True
 
-        return inputString[middleIndex:] == inputString[:middleIndex][::-1]
+print(palindromeRearranging("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc"))
 
 
 
-palindromeRearranging("aabb")
+
