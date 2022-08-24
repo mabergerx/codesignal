@@ -1,5 +1,11 @@
+# def solution(inputArray, k):
+#     sums = [sum(inputArray[i: i + k]) for i in range(len(inputArray)-k+1)]
+#     return max(sums)
+# Passes all but 20th test because of run time limitation.
+
 def solution(inputArray, k):
-    sums = []
-    for i in range(len(inputArray) - k + 1):
-        sums.append(sum(inputArray[i: i + k]))
-    return max(sums)
+    total = result = sum(inputArray[:k])
+    for i in range(len(inputArray) - k):
+        total += inputArray[i + k] - inputArray[i]
+        result = max(result, total)
+    return result
