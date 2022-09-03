@@ -1,2 +1,10 @@
+# def solution(symbol):
+#     return symbol.isdigit()
+
+# Another way
 def solution(symbol):
-    return symbol.isdigit()
+    try:
+        int(symbol)
+        return True
+    except:
+        return False
